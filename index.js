@@ -6,11 +6,13 @@ document.querySelectorAll(".drum")[i].addEventListener("click", function () {
 
 var bottonToTouch = this.innerHTML;
   founder(bottonToTouch);
+  animatinWo(bottonToTouch);
 }
 );
 }
-  document.addEventListener("keypress",function(event){
+  document.addEventListener("keydown",function(event){
     founder(event.key);
+    animatinWo(event.key);
 });
 function founder(key) {
 
@@ -44,10 +46,13 @@ function founder(key) {
           snare.play();
           break;
           default: console.log(founder);
-
     }
-
-
 }
+function animatinWo(tuKy){
+  var animatedWev = document.querySelector("." + tuKy);
+  animatedWev.classList.add("pressed");
 
-
+  setTimeout(function(){
+    animatedWev.classList.remove("pressed");
+  },100)
+}
